@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/vradchen/work/piscine/d04/ex00/Peon.cpp
+Peon.hpp
+/Users/vradchen/work/piscine/d04/ex00/Peon.hpp
+
+/Users/vradchen/work/piscine/d04/ex00/Peon.hpp
+Victim.hpp
+/Users/vradchen/work/piscine/d04/ex00/Victim.hpp
+
+/Users/vradchen/work/piscine/d04/ex00/Victim.hpp
+iostream
+-
+

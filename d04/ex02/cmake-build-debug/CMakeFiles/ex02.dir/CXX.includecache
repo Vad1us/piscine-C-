@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/vradchen/work/piscine/d04/ex02/ISpaceMarine.hpp
+iostream
+-
+
+/Users/vradchen/work/piscine/d04/ex02/ISquad.hpp
+ISpaceMarine.hpp
+/Users/vradchen/work/piscine/d04/ex02/ISpaceMarine.hpp
+iostream
+-
+
+/Users/vradchen/work/piscine/d04/ex02/Squad.cpp
+Squad.hpp
+/Users/vradchen/work/piscine/d04/ex02/Squad.hpp
+
+/Users/vradchen/work/piscine/d04/ex02/Squad.hpp
+ISquad.hpp
+/Users/vradchen/work/piscine/d04/ex02/ISquad.hpp
+ISpaceMarine.hpp
+/Users/vradchen/work/piscine/d04/ex02/ISpaceMarine.hpp
+
