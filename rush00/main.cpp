@@ -1,32 +1,70 @@
 #include <iostream>
 #include "ncurses.h"
+#include <random>
 
+void newGame()
+{
+
+}
 int main() {
+	srand(time(NULL));
 	initscr();
 	noecho();
 	cbreak();
 	int yMax, xMax;
-	getmaxyx(stdscr, yMax, xMax);
+	//getmaxyx(stdscr, yMax, xMax);
 
-	WINDOW * inputwin = newwin(yMax-20, xMax-20, 10, 10);
+	//WINDOW * stdscr = newwin(yMax-15, xMax-20, 10, 10);
 	getmaxyx(stdscr, yMax, xMax);
-	mvwprintw(inputwin, 1, 40, "hellooooo");
-	box (inputwin, 0, 0);
+	mvwprintw(stdscr, 1, 40, "HELLO MY LITTLI FRIEND\n");
+	//box (stdscr, 0, 0);
 	refresh();
-	wrefresh(inputwin);
-	keypad(inputwin, true);
-
-	std::string ch[] = {"New game", "Quit"};
+	wrefresh(stdscr);
+	keypad(stdscr, true);
+	std::string ch[] = {
+	"    _   _                                            \n",
+	"   | \\ | |                                           \n",
+	"   |  \\| | _____      __   __ _  __ _ _ __ ___   ___ \n",
+	"   | . ` |/ _ \\ \\ /\\ / /  / _` |/ _` | '_ ` _ \\ / _ \\\n",
+	"   | |\\  |  __/\\ V  V /  | (_| | (_| | | | | | |  __/\n",
+	"   |_| \\_|\\___| \\_/\\_/    \\__, |\\__,_|_| |_| |_|\\___|\n",
+	"                           __/ |                     \n",
+	"                          |___/ ",
+	"                _ _   \n", //8
+	"               (_| |  \n",
+	"     __ _ _   _ _| |_ \n",
+	"    / _` | | | | | __|\n",
+	"   | (_| | |_| | | |_ \n",
+	"    \\__, |\\__,_|_|\\__|\n",
+	"       | |            \n",
+	"       |_|"};
 	int choice;
 	int highlight = 0;
+	int i;
 	while (1) {
-		for (int i = 0; i < 2; i++) {
+		for (i = 0; i < 2; i++) {
 			if (i == highlight)
-				wattron(inputwin, A_REVERSE);
-			mvwprintw(inputwin, i+1, 1, ch[i].c_str());
-			wattroff(inputwin, A_REVERSE);
+				wattron(stdscr, A_REVERSE);
+//			start_color();
+//			int c = rand() % 5;
+//			init_pair(1, COLOR_RED, -1);
+//			init_pair(2, COLOR_BLUE, -1);
+//			init_pair(3, COLOR_CYAN, -1);
+//			init_pair(4, COLOR_YELLOW, -1);
+//			init_pair(5, COLOR_GREEN, -1);
+			//attron(COLOR_PAIR(2));
+			mvwprintw(stdscr, i*9+2, 10, ch[i*8].c_str());
+			mvwprintw(stdscr, i*9+3, 10, ch[i*8+1].c_str());
+			mvwprintw(stdscr, i*9+4, 10, ch[i*8+2].c_str());
+			mvwprintw(stdscr, i*9+5, 10, ch[i*8+3].c_str());
+			mvwprintw(stdscr, i*9+6, 10, ch[i*8+4].c_str());
+			mvwprintw(stdscr, i*9+7, 10, ch[i*8+5].c_str());
+			mvwprintw(stdscr, i*9+8, 10, ch[i*8+6].c_str());
+			mvwprintw(stdscr, i*9+9, 10, ch[i*8+7].c_str());
+			//attroff(COLOR_PAIR(2));
+			wattroff(stdscr, A_REVERSE);
 		}
-		choice = wgetch(inputwin);
+		choice = wgetch(stdscr);
 
 		switch(choice) {
 			case KEY_UP:
@@ -45,12 +83,35 @@ int main() {
 		if (choice == 10)
 			break ;
 	}
-//	int key = getch();
-//	move(20,20);
-//	printw("%i", key);
-//	mvprintw(3,3, "%i", key);
-//	refresh();
-	getch();
-	endwin();
+	init_pair(1, COLOR_RED, COLOR_WHITE);
+	init_pair(2, COLOR_BLUE, -1);
+	init_pair(3, COLOR_CYAN, -1);
+	init_pair(4, COLOR_YELLOW, -1);
+	init_pair(5, COLOR_GREEN, -1);
+	if (i == 1)
+		newGame();
+	else {
+		clear();
+		while (get) {
+			srand(time(NULL));
+			//clear();
+			int col = rand() % 5;
+			mvprintw(1,1,"col =%d", col);
+			attron(COLOR_PAIR(1));
+			attron(COLOR_PAIR(col));
+			mvprintw(2, 2,
+					 "//   ::::::::   ::::::::   ::::::::  :::::::::        :::::::::  :::   ::: :::::::::: \n"
+					 "//  :+:    :+: :+:    :+: :+:    :+: :+:    :+:       :+:    :+: :+:   :+: :+:        \n"
+					 "//  +:+        +:+    +:+ +:+    +:+ +:+    +:+       +:+    +:+  +:+ +:+  +:+        \n"
+					 "//  :#:        +#+    +:+ +#+    +:+ +#+    +:+       +#++:++#+    +#++:   +#++:++#   \n"
+					 "//  +#+   +#+# +#+    +#+ +#+    +#+ +#+    +#+       +#+    +#+    +#+    +#+        \n"
+					 "//  #+#    #+# #+#    #+# #+#    #+# #+#    #+#       #+#    #+#    #+#    #+#        \n"
+					 "//   ########   ########   ########  #########        #########     ###    ########## ");
+			attroff(COLOR_PAIR(col));
+			attroff(COLOR_PAIR(1));
+			refresh();
+		}
+		endwin();
+	}
 	exit(EXIT_SUCCESS);
 }
