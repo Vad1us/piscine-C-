@@ -79,6 +79,8 @@ rush00_EXTERNAL_OBJECTS =
 
 rush00: CMakeFiles/rush00.dir/main.cpp.o
 rush00: CMakeFiles/rush00.dir/build.make
+rush00: /usr/lib/libncurses.dylib
+rush00: /usr/lib/libform.dylib
 rush00: CMakeFiles/rush00.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/vradchen/work/piscine/rush00/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable rush00"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rush00.dir/link.txt --verbose=$(VERBOSE)
