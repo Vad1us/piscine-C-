@@ -1,6 +1,6 @@
 NAME	= ez
 
-SRC 	= ez.cpp Contact.class.cpp
+SRC 	= ez.cpp Contact.cpp
 
 OBJ		= $(SRC:.cpp=.o)
 

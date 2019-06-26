@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/vradchen/work/piscine/d05/ex01/Bureaucrat.hpp
+iostream
+-
+string
+-
+exception
+-
+Form.hpp
+/Users/vradchen/work/piscine/d05/ex01/Form.hpp
+
+/Users/vradchen/work/piscine/d05/ex01/Form.hpp
+iostream
+-
+exception
+-
+Bureaucrat.hpp
+/Users/vradchen/work/piscine/d05/ex01/Bureaucrat.hpp
+
+/Users/vradchen/work/piscine/d05/ex01/main.cpp
+iostream
+-
+Bureaucrat.hpp
+/Users/vradchen/work/piscine/d05/ex01/Bureaucrat.hpp
+Form.hpp
+/Users/vradchen/work/piscine/d05/ex01/Form.hpp
+

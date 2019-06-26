@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/vradchen/work/piscine/d06/ex00/Magic.cpp
+Magic.hpp
+/Users/vradchen/work/piscine/d06/ex00/Magic.hpp
+
+/Users/vradchen/work/piscine/d06/ex00/Magic.hpp
+iostream
+-
+iomanip
+-
+
+/Users/vradchen/work/piscine/d06/ex00/main.cpp
+iostream
+-
+Magic.hpp
+/Users/vradchen/work/piscine/d06/ex00/Magic.hpp
+

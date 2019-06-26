@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Contact.class.hpp"
+#include "Contact.hpp"
 #include <stdlib.h>
 
 void	ft_print_par(std::string str)

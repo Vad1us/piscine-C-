@@ -15,3 +15,28 @@ public:
 };
 
 #endif
+#ifndef ZOMBIE_HPP
+
+# define ZOMBIE_HPP
+
+# include <iostream>
+# include <string>
+
+class                   Zombie
+{
+
+public:
+
+    Zombie();
+    Zombie(Zombie const & copy);
+    ~Zombie();
+
+    Zombie &           operator=(Zombie const & copy);
+
+private:
+
+};
+
+std::ostream &          operator<<(std::ostream & os, Zombie const & inst);
+
+#endif

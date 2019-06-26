@@ -6,9 +6,12 @@ void newGame()
 {
 
 }
+(x,y,symb)
+
 int main() {
 	srand(time(NULL));
 	initscr();
+	start_color();
 	use_default_colors();
 	noecho();
 	cbreak();
@@ -37,10 +40,19 @@ int main() {
 	int choice;
 	int highlight = 0;
 	int i;
+	init_pair(1, COLOR_RED,  -1);//COLOR_BLUE);
+	init_pair(2, COLOR_BLUE, -1);//COLOR_CYAN);
+	init_pair(3, COLOR_CYAN, -1);//COLOR_YELLOW);
+	init_pair(4, COLOR_YELLOW,-1);//COLOR_GREEN);
+	init_pair(5, COLOR_GREEN, -1);//COLOR_RED);
 	while (1) {
+		nodelay(stdscr, true);
+		srand(time(0));
 		for (i = 0; i < 2; i++) {
 			if (i == highlight)
 				wattron(stdscr, A_REVERSE);
+			int col = rand() % 5;
+			attron(COLOR_PAIR(col));
 			mvwprintw(stdscr, i*9+2, 10, ch[i*8].c_str());
 			mvwprintw(stdscr, i*9+3, 10, ch[i*8+1].c_str());
 			mvwprintw(stdscr, i*9+4, 10, ch[i*8+2].c_str());
@@ -50,6 +62,8 @@ int main() {
 			mvwprintw(stdscr, i*9+8, 10, ch[i*8+6].c_str());
 			mvwprintw(stdscr, i*9+9, 10, ch[i*8+7].c_str());
 			wattroff(stdscr, A_REVERSE);
+			attroff(COLOR_PAIR(col));
+			
 		}
 		choice = wgetch(stdscr);
 
@@ -74,14 +88,8 @@ int main() {
 		newGame();
 	else {
 		clear();
-		init_pair(1, COLOR_RED,  -1);//COLOR_BLUE);
-		init_pair(2, COLOR_BLUE, -1);//COLOR_CYAN);
-		init_pair(3, COLOR_CYAN, -1);//COLOR_YELLOW);
-		init_pair(4, COLOR_YELLOW,-1);//COLOR_GREEN);
-		init_pair(5, COLOR_GREEN, -1);//COLOR_RED);
 		while (1) {
 		 	int col = rand() % 5;
-		 	mvwprintw(stdscr,1,1,"col =%d", col);
 		 	attron(COLOR_PAIR(col));
 			mvwprintw(stdscr,2, 2,
 					 "   ::::::::   ::::::::   ::::::::  :::::::::        :::::::::  :::   ::: :::::::::: \n"
